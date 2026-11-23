@@ -1,53 +1,145 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173b70"><title>Smart CV Maker — Free Resume Builder</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#173b70">
+<title>Smart CV Maker — Free Resume Builder</title>
 <style>
-:root{--navy:#173b70;--blue:#2563eb;--bg:#f3f6fb;--ink:#172033;--muted:#667085}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}header{background:linear-gradient(120deg,#173b70,#2563eb);color:white;padding:20px 16px}header .wrap{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:14px;background:#ffffff22;display:grid;place-items:center;font-size:25px}h1{font-size:22px;margin:0}header p{margin:5px 0 0;color:#dce8ff;font-size:13px}.wrap{max-width:1100px;margin:auto;padding:18px 14px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:18px}.panel{background:white;border:1px solid #e4e9f2;border-radius:16px;padding:18px;box-shadow:0 4px 18px #14213d0a}.panel h2{font-size:18px;margin:0 0 14px}.section{border-top:1px solid #edf0f5;padding-top:15px;margin-top:15px}.section h3{font-size:14px;margin:0 0 12px;color:var(--navy)}label{display:block;font-size:12px;font-weight:700;color:#475467;margin:0 0 5px}input,textarea,select{width:100%;border:1px solid #d7deea;border-radius:9px;padding:11px;font:14px Arial;background:#fff;color:var(--ink);margin-bottom:11px}textarea{min-height:75px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}button{border:0;border-radius:10px;padding:12px 15px;font-weight:700;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:#eaf0fb;color:var(--navy)}.hint{font-size:12px;color:var(--muted);line-height:1.5}.preview-wrap{background:#e9eef7;border-radius:12px;padding:12px;overflow:auto}.resume{background:white;min-height:700px;width:100%;max-width:560px;margin:auto;padding:34px 32px;box-shadow:0 3px 15px #16233a16;color:#222;font-family:Arial}.resume h2{font-size:25px;margin:0;color:#173b70}.resume .role{font-size:13px;color:#52627a;margin:6px 0 12px}.contact{font-size:10px;color:#667085;border-bottom:2px solid #2563eb;padding-bottom:13px;line-height:1.7}.rsection{margin-top:17px}.rsection h3{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#173b70;border-bottom:1px solid #d9e2f1;padding-bottom:5px;margin:0 0 8px}.rsection p{font-size:11px;line-height:1.55;margin:4px 0;white-space:pre-wrap}.rsection .entry{margin-bottom:9px}.entry strong{font-size:11px}.entry small{font-size:10px;color:#667085}.template-modern .resume h2{color:#0f766e}.template-classic .resume{font-family:Georgia,serif}.template-classic .resume h2{color:#333}.template-simple .resume h2{color:#111}.footer{text-align:center;color:#7a8495;font-size:11px;padding:18px}.hidden{display:none}
-@media(max-width:800px){.layout{grid-template-columns:1fr}.preview-panel{order:2}.form-panel{order:1}.resume{min-height:600px}}@media print{body{background:white}.no-print,header,.form-panel,.footer{display:none!important}.wrap{padding:0;max-width:none}.layout{display:block}.panel{border:0;padding:0;box-shadow:none}.preview-wrap{padding:0;background:white}.resume{box-shadow:none;max-width:none;width:100%;min-height:0;padding:15mm}.preview-panel h2{display:none}}
-.ad-slot{max-width:1100px;margin:14px auto;padding:10px 14px}.ad-inner{min-height:72px;border:1px dashed #c5cfdf;border-radius:12px;background:#f8faff;display:flex;align-items:center;justify-content:center;text-align:center;color:#8390a4;font-size:11px;padding:12px}.ad-label{display:block;font-size:9px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;color:#9aa5b5}.ad-slot:empty{display:none}
-@media(max-width:800px){.ad-slot{margin:10px auto;padding:8px 12px}.ad-inner{min-height:60px}}
-</style></head><body>
-<header><div class="wrap"><div class="logo">📄</div><div><h1>Smart CV Maker</h1><p>Create a professional resume — completely free</p></div></div></header>
-<div class="ad-slot" id="topAd"><div class="ad-inner"><div><span class="ad-label">Advertisement</span>Ad space · Website ads will appear here after Google AdSense approval</div></div></div>
+:root{--navy:#173b70;--blue:#2563eb;--bg:#f3f6fb;--ink:#172033;--muted:#667085}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+header{background:linear-gradient(120deg,#173b70,#2563eb);color:#fff;padding:22px 16px}
+.header-wrap{max-width:1100px;margin:auto;display:flex;align-items:center;gap:13px}
+.logo{width:48px;height:48px;border-radius:14px;background:#ffffff22;display:grid;place-items:center;font-size:26px}
+h1{font-size:23px;margin:0}header p{margin:5px 0 0;color:#dce8ff;font-size:14px}
+.topbar{max-width:1100px;margin:14px auto 0;padding:0 14px;display:flex;justify-content:flex-end}
+.topbar select{width:auto;min-width:145px;margin:0;background:#fff}
+.wrap{max-width:1100px;margin:auto;padding:16px 14px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:18px;align-items:start}
+.panel{background:#fff;border:1px solid #e4e9f2;border-radius:18px;padding:20px;box-shadow:0 4px 18px #14213d0a;min-width:0}
+.panel h2{font-size:21px;margin:0 0 10px}
+.hint{font-size:13px;color:var(--muted);line-height:1.55}
+.section{border-top:1px solid #edf0f5;padding-top:17px;margin-top:17px}
+.section h3{font-size:16px;margin:0 0 13px;color:var(--navy)}
+label{display:block;font-size:13px;font-weight:700;color:#475467;margin:0 0 6px}
+input,textarea,select{display:block;width:100%;min-width:0;border:1px solid #d7deea;border-radius:10px;padding:12px;font:15px Arial;background:#fff;color:var(--ink);margin:0 0 13px}
+textarea{min-height:88px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid #93b4ff;border-color:var(--blue)}
+.field{min-width:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+button{border:0;border-radius:11px;padding:13px 16px;font-size:15px;font-weight:700;cursor:pointer}
+.primary{background:var(--blue);color:#fff}.secondary{background:#eaf0fb;color:var(--navy)}
+.photo-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.photo-preview{width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid #d7deea;display:none}
+.preview-wrap{background:#e9eef7;border-radius:13px;padding:12px;overflow:auto}
+.resume{background:#fff;min-height:700px;width:100%;max-width:560px;margin:auto;padding:36px 34px;box-shadow:0 3px 15px #16233a16;color:#222;font-family:Arial}
+.resume-head{display:flex;gap:18px;align-items:center;border-bottom:2px solid var(--blue);padding-bottom:16px}
+.resume-photo{width:88px;height:88px;object-fit:cover;border-radius:50%;display:none}
+.resume h2{font-size:27px;margin:0;color:var(--navy);overflow-wrap:anywhere}
+.resume .role{font-size:14px;color:#52627a;margin:6px 0 10px}
+.contact{font-size:11px;color:#667085;line-height:1.7;overflow-wrap:anywhere}
+.rsection{margin-top:18px}.rsection h3{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--navy);border-bottom:1px solid #d9e2f1;padding-bottom:6px;margin:0 0 8px}
+.rsection p{font-size:12px;line-height:1.6;margin:4px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.entry{margin-bottom:10px}.entry strong{font-size:12px}.entry small{font-size:11px;color:#667085}
+.template-modern .resume h2,.template-modern .rsection h3{color:#0f766e}.template-modern .resume-head{border-color:#0f766e}
+.template-classic .resume{font-family:Georgia,serif}.template-classic .resume h2{color:#333}.template-classic .resume-head{border-color:#555}
+.template-simple .resume h2,.template-simple .rsection h3{color:#111}.template-simple .resume-head{border-color:#222}
+.template-elegant .resume{border-top:8px solid #8b5cf6}.template-elegant .resume h2,.template-elegant .rsection h3{color:#6d28d9}
+.ad-slot{max-width:1100px;margin:12px auto;padding:8px 14px}.ad-inner{min-height:58px;border:1px dashed #c5cfdf;border-radius:12px;background:#f8faff;display:grid;place-items:center;text-align:center;color:#8390a4;font-size:11px;padding:10px}
+.ad-label{display:block;font-size:9px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;color:#9aa5b5}
+.footer{text-align:center;color:#7a8495;font-size:11px;padding:20px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.preview-panel{order:2}.form-panel{order:1}.panel{padding:17px}.wrap{padding:12px}.resume{min-height:580px;padding:27px 23px}.topbar{margin-top:10px}}
+@media(max-width:420px){.two{grid-template-columns:1fr;gap:0}.resume{padding:22px 17px}.resume h2{font-size:23px}.resume-photo{width:70px;height:70px}}
+@media print{body{background:#fff}.no-print,header,.topbar,.form-panel,.footer,.ad-slot{display:none!important}.wrap{padding:0;max-width:none}.layout{display:block}.panel{border:0;padding:0;box-shadow:none}.preview-wrap{padding:0;background:#fff;overflow:visible}.resume{box-shadow:none;max-width:none;width:100%;min-height:0;padding:12mm}.preview-panel h2{display:none}}
+</style>
+</head>
+<body>
+<header><div class="header-wrap"><div class="logo">📄</div><div><h1>Smart CV Maker</h1><p id="tagline">Create a professional resume — completely free</p></div></div></header>
+<div class="topbar no-print"><select id="language" aria-label="Choose language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="ne">नेपाली</option></select></div>
+<div class="ad-slot no-print" id="topAd"><div class="ad-inner"><div><span class="ad-label">Advertisement</span>Ad space · Ads may appear here after approval</div></div></div>
 <main class="wrap"><div class="layout">
-<section class="panel form-panel"><h2>Build your resume</h2><p class="hint">Fill in the details below. Your resume preview updates automatically. Leave any field blank if it does not apply.</p>
-<div class="section"><h3>Personal information</h3><div class="two"><div><label>Full name</label><input id="name" placeholder="e.g. Rahul Kumar"></div><div><label>Job title / Profession</label><input id="role" placeholder="e.g. Warehouse Assistant"></div></div><div class="two"><div><label>Phone</label><input id="phone" placeholder="+977 / +91"></div><div><label>Email</label><input id="email" type="email" placeholder="you@example.com"></div></div><div class="two"><div><label>City / Country</label><input id="location" placeholder="Biratnagar, Nepal"></div><div><label>LinkedIn / Portfolio (optional)</label><input id="link" placeholder="linkedin.com/in/..."></div></div><label>Professional summary</label><textarea id="summary" placeholder="Write 2–4 lines about your skills, strengths and career goal..."></textarea></div>
-<div class="section"><h3>Education</h3><div class="two"><div><label>Qualification</label><input id="degree" placeholder="e.g. Higher Secondary"></div><div><label>School / College</label><input id="school" placeholder="Institution name"></div></div><div class="two"><div><label>Year</label><input id="year" placeholder="2022"></div><div><label>Location (optional)</label><input id="eduLoc" placeholder="City"></div></div></div>
-<div class="section"><h3>Work experience</h3><div class="two"><div><label>Job title</label><input id="job" placeholder="e.g. Packing Associate"></div><div><label>Company</label><input id="company" placeholder="Company name"></div></div><div class="two"><div><label>Duration</label><input id="duration" placeholder="2023 – 2025"></div><div><label>Location</label><input id="workLoc" placeholder="City / Country"></div></div><label>Responsibilities / Achievements</label><textarea id="duties" placeholder="Describe your work, duties and achievements..."></textarea></div>
-<div class="section"><h3>Skills & additional details</h3><label>Skills (separate with commas)</label><textarea id="skills" placeholder="Teamwork, Communication, MS Office, Packing"></textarea><label>Languages</label><input id="languages" placeholder="Hindi, English, Nepali"><label>Certifications / Other information (optional)</label><textarea id="extra" placeholder="Certificates, training, awards..."></textarea></div>
-<div class="section"><h3>Choose a design</h3><select id="template"><option value="template-professional">Professional Blue</option><option value="template-modern">Modern Teal</option><option value="template-classic">Classic</option><option value="template-simple">Simple Black & White</option></select><div class="actions"><button class="primary" onclick="window.print()">⬇ Download / Save PDF</button><button class="secondary" onclick="clearForm()">Clear form</button></div><p class="hint">To save as PDF, choose “Save as PDF” in your browser’s print options. On mobile, select Save as PDF from the print/share menu.</p></div>
+<section class="panel form-panel">
+<h2 id="formTitle">Build your resume</h2><p class="hint" id="formHint">Fill in the details below. Your resume preview updates automatically. Leave any field blank if it does not apply.</p>
+<div class="section"><h3 data-i18n="personal">Personal information</h3>
+<div class="photo-row"><img id="photoPreview" class="photo-preview" alt="Profile photo preview"><div class="field" style="flex:1"><label for="photo" data-i18n="photo">Profile photo (optional)</label><input id="photo" type="file" accept="image/*"></div></div>
+<div class="two"><div class="field"><label for="name" data-i18n="fullName">Full name</label><input id="name" placeholder="e.g. Rahul Kumar"></div><div class="field"><label for="role" data-i18n="jobTitle">Job title / Profession</label><input id="role" placeholder="e.g. Warehouse Assistant"></div></div>
+<div class="two"><div class="field"><label for="phone" data-i18n="phone">Phone</label><input id="phone" placeholder="+977 / +91"></div><div class="field"><label for="email" data-i18n="email">Email</label><input id="email" type="email" placeholder="you@example.com"></div></div>
+<div class="two"><div class="field"><label for="location" data-i18n="city">City / Country</label><input id="location" placeholder="Biratnagar, Nepal"></div><div class="field"><label for="link" data-i18n="link">LinkedIn / Portfolio (optional)</label><input id="link" placeholder="linkedin.com/in/..."></div></div>
+<label for="summary" data-i18n="summary">Professional summary</label><textarea id="summary" placeholder="Write 2–4 lines about your skills, strengths and career goal..."></textarea></div>
+<div class="section"><h3 data-i18n="education">Education</h3>
+<div class="two"><div class="field"><label for="degree" data-i18n="qualification">Qualification</label><input id="degree" placeholder="e.g. Higher Secondary"></div><div class="field"><label for="school" data-i18n="school">School / College</label><input id="school" placeholder="Institution name"></div></div>
+<div class="two"><div class="field"><label for="year" data-i18n="year">Year</label><input id="year" placeholder="2022"></div><div class="field"><label for="eduLoc" data-i18n="eduLocation">Location (optional)</label><input id="eduLoc" placeholder="City"></div></div></div>
+<div class="section"><h3 data-i18n="experience">Work experience</h3>
+<div class="two"><div class="field"><label for="job" data-i18n="job">Job title</label><input id="job" placeholder="e.g. Packing Associate"></div><div class="field"><label for="company" data-i18n="company">Company</label><input id="company" placeholder="Company name"></div></div>
+<div class="two"><div class="field"><label for="duration" data-i18n="duration">Duration</label><input id="duration" placeholder="2023 – 2025"></div><div class="field"><label for="workLoc" data-i18n="workLocation">Location</label><input id="workLoc" placeholder="City / Country"></div></div>
+<label for="duties" data-i18n="duties">Responsibilities / Achievements</label><textarea id="duties" placeholder="Describe your work, duties and achievements..."></textarea></div>
+<div class="section"><h3 data-i18n="skillsDetails">Skills & additional details</h3>
+<label for="skills" data-i18n="skills">Skills (separate with commas)</label><textarea id="skills" placeholder="Teamwork, Communication, MS Office"></textarea>
+<label for="languages" data-i18n="languages">Languages</label><input id="languages" placeholder="Hindi, English, Nepali">
+<label for="extra" data-i18n="certificates">Certifications / Other information (optional)</label><textarea id="extra" placeholder="Certificates, training, awards..."></textarea></div>
+<div class="section"><h3 data-i18n="design">Choose a design</h3>
+<select id="template"><option value="template-professional">Professional Blue</option><option value="template-modern">Modern Teal</option><option value="template-classic">Classic</option><option value="template-simple">Simple Black & White</option><option value="template-elegant">Elegant Purple</option></select>
+<div class="actions"><button class="primary" id="downloadBtn" type="button">↓ Download / Save PDF</button><button class="secondary" id="clearBtn" type="button">Clear form</button></div>
+<p class="hint" id="pdfHint">To save as PDF, choose “Save as PDF” in your browser’s print options.</p></div>
 </section>
-<section class="panel preview-panel"><h2 class="no-print">Live resume preview</h2><div class="preview-wrap" id="previewWrap"><article class="resume" id="resume"><h2 id="pname">Your Name</h2><div class="role" id="prole">Your Professional Title</div><div class="contact" id="pcontact">Phone · Email · City / Country</div><div class="rsection" id="summarySec"><h3>Profile</h3><p id="psummary">Your professional summary will appear here.</p></div><div class="rsection" id="eduSec"><h3>Education</h3><div class="entry"><strong id="pedu">Your qualification</strong><br><small id="pschool">School / College · Year</small></div></div><div class="rsection" id="workSec"><h3>Experience</h3><div class="entry"><strong id="pjob">Your job title</strong><br><small id="pcompany">Company · Duration</small><p id="pduties"></p></div></div><div class="rsection" id="skillsSec"><h3>Skills</h3><p id="pskills">Your skills</p></div><div class="rsection" id="langSec"><h3>Languages</h3><p id="planguages">Your languages</p></div><div class="rsection" id="extraSec"><h3>Additional information</h3><p id="pextra"></p></div></article></div></section>
+<section class="panel preview-panel"><h2 class="no-print" id="previewTitle">Live resume preview</h2><div class="preview-wrap" id="previewWrap"><article class="resume" id="resume">
+<div class="resume-head"><img id="resumePhoto" class="resume-photo" alt=""><div><h2 id="pname">Your Name</h2><div class="role" id="prole">Your Professional Title</div><div class="contact" id="pcontact">Phone · Email · City / Country</div></div></div>
+<div class="rsection" id="summarySec"><h3 data-preview="profile">Profile</h3><p id="psummary">Your professional summary will appear here.</p></div>
+<div class="rsection" id="eduSec"><h3 data-preview="education">Education</h3><div class="entry"><strong id="pedu">Your qualification</strong><br><small id="pschool">School / College · Year</small></div></div>
+<div class="rsection" id="workSec"><h3 data-preview="experience">Experience</h3><div class="entry"><strong id="pjob">Your job title</strong><br><small id="pcompany">Company · Duration</small><p id="pduties"></p></div></div>
+<div class="rsection" id="skillsSec"><h3 data-preview="skills">Skills</h3><p id="pskills">Your skills</p></div>
+<div class="rsection" id="langSec"><h3 data-preview="languages">Languages</h3><p id="planguages">Your languages</p></div>
+<div class="rsection" id="extraSec"><h3 data-preview="additional">Additional information</h3><p id="pextra"></p></div>
+</article></div></section>
 </div>
-<div class="ad-slot" id="bottomAd"><div class="ad-inner"><div><span class="ad-label">Advertisement</span>Ad space · This area is reserved for a responsive ad</div></div></div>
-<div class="footer">Smart CV Maker · Free resume builder · Resume details are processed in this browser. Do not use a shared/public device for sensitive information.</div></main>
+<div class="ad-slot no-print" id="bottomAd"><div class="ad-inner"><div><span class="ad-label">Advertisement</span>Ad space · Reserved for a responsive ad after approval</div></div></div>
+<div class="footer">Smart CV Maker · Free resume builder · Your resume details are processed in this browser.</div>
+</main>
 <script>
-// AD SETUP: Replace the sample values only after Google approves your site/app.
-// Website: add your AdSense publisher ID and a valid ad slot ID below.
-// Android: AdMob requires a native Android build and its own App ID/ad unit IDs; it cannot be activated by this HTML file alone.
-const AD_CONFIG = {
-  adsensePublisherId: '', // Example format: ca-pub-1234567890123456
-  responsiveAdSlotId: ''  // Your approved AdSense ad unit slot ID
+const translations={
+en:{tagline:"Create a professional resume — completely free",formTitle:"Build your resume",formHint:"Fill in the details below. Your resume preview updates automatically. Leave any field blank if it does not apply.",personal:"Personal information",photo:"Profile photo (optional)",fullName:"Full name",jobTitle:"Job title / Profession",phone:"Phone",email:"Email",city:"City / Country",link:"LinkedIn / Portfolio (optional)",summary:"Professional summary",education:"Education",qualification:"Qualification",school:"School / College",year:"Year",eduLocation:"Location (optional)",experience:"Work experience",job:"Job title",company:"Company",duration:"Duration",workLocation:"Location",duties:"Responsibilities / Achievements",skillsDetails:"Skills & additional details",skills:"Skills (separate with commas)",languages:"Languages",certificates:"Certifications / Other information (optional)",design:"Choose a design",download:"↓ Download / Save PDF",clear:"Clear form",pdfHint:"To save as PDF, choose “Save as PDF” in your browser’s print options.",preview:"Live resume preview",profile:"Profile",additional:"Additional information",yourName:"Your Name",yourTitle:"Your Professional Title",yourSummary:"Your professional summary will appear here.",yourQualification:"Your qualification",schoolYear:"School / College · Year",yourJob:"Your job title",companyDuration:"Company · Duration",yourSkills:"Your skills",yourLanguages:"Your languages",confirm:"Clear all resume details?",photoError:"Please choose an image file."},
+hi:{tagline:"पूरी तरह मुफ्त प्रोफेशनल रिज्यूमे बनाएं",formTitle:"अपना रिज्यूमे बनाएं",formHint:"नीचे अपनी जानकारी भरें। रिज्यूमे का प्रीव्यू अपने आप अपडेट होगा। लागू न होने वाली जानकारी खाली छोड़ दें।",personal:"व्यक्तिगत जानकारी",photo:"प्रोफाइल फोटो (वैकल्पिक)",fullName:"पूरा नाम",jobTitle:"पद / पेशा",phone:"फोन",email:"ईमेल",city:"शहर / देश",link:"LinkedIn / पोर्टफोलियो (वैकल्पिक)",summary:"प्रोफेशनल परिचय",education:"शिक्षा",qualification:"योग्यता",school:"स्कूल / कॉलेज",year:"वर्ष",eduLocation:"स्थान (वैकल्पिक)",experience:"काम का अनुभव",job:"पद का नाम",company:"कंपनी",duration:"अवधि",workLocation:"स्थान",duties:"जिम्मेदारियां / उपलब्धियां",skillsDetails:"कौशल और अन्य जानकारी",skills:"कौशल (कॉमा लगाकर लिखें)",languages:"भाषाएं",certificates:"सर्टिफिकेट / अन्य जानकारी (वैकल्पिक)",design:"डिजाइन चुनें",download:"↓ PDF डाउनलोड / सेव करें",clear:"फॉर्म साफ करें",pdfHint:"PDF के लिए ब्राउज़र के Print विकल्प में “Save as PDF” चुनें।",preview:"रिज्यूमे का लाइव प्रीव्यू",profile:"परिचय",additional:"अतिरिक्त जानकारी",yourName:"आपका नाम",yourTitle:"आपका पेशेवर पद",yourSummary:"आपका प्रोफेशनल परिचय यहां दिखेगा।",yourQualification:"आपकी योग्यता",schoolYear:"स्कूल / कॉलेज · वर्ष",yourJob:"आपका पद",companyDuration:"कंपनी · अवधि",yourSkills:"आपके कौशल",yourLanguages:"आपकी भाषाएं",confirm:"क्या आप रिज्यूमे की सारी जानकारी साफ करना चाहते हैं?",photoError:"कृपया इमेज फाइल चुनें।"},
+ne:{tagline:"पूर्ण रूपमा निःशुल्क व्यावसायिक बायोडाटा बनाउनुहोस्",formTitle:"आफ्नो बायोडाटा बनाउनुहोस्",formHint:"तल आफ्नो विवरण भर्नुहोस्। बायोडाटाको पूर्वावलोकन स्वतः अपडेट हुन्छ। लागू नहुने विवरण खाली छोड्नुहोस्।",personal:"व्यक्तिगत विवरण",photo:"प्रोफाइल फोटो (वैकल्पिक)",fullName:"पूरा नाम",jobTitle:"पद / पेशा",phone:"फोन",email:"इमेल",city:"शहर / देश",link:"LinkedIn / पोर्टफोलियो (वैकल्पिक)",summary:"व्यावसायिक परिचय",education:"शिक्षा",qualification:"योग्यता",school:"विद्यालय / कलेज",year:"वर्ष",eduLocation:"स्थान (वैकल्पिक)",experience:"कार्य अनुभव",job:"पदको नाम",company:"कम्पनी",duration:"अवधि",workLocation:"स्थान",duties:"जिम्मेवारी / उपलब्धि",skillsDetails:"सीप तथा थप विवरण",skills:"सीप (अल्पविरामले छुट्याउनुहोस्)",languages:"भाषाहरू",certificates:"प्रमाणपत्र / अन्य जानकारी (वैकल्पिक)",design:"डिजाइन छान्नुहोस्",download:"↓ PDF डाउनलोड / सुरक्षित गर्नुहोस्",clear:"फारम खाली गर्नुहोस्",pdfHint:"PDF का लागि ब्राउजरको Print विकल्पमा “Save as PDF” छान्नुहोस्।",preview:"बायोडाटाको प्रत्यक्ष पूर्वावलोकन",profile:"परिचय",additional:"थप जानकारी",yourName:"तपाईंको नाम",yourTitle:"तपाईंको व्यावसायिक पद",yourSummary:"तपाईंको व्यावसायिक परिचय यहाँ देखिनेछ।",yourQualification:"तपाईंको योग्यता",schoolYear:"विद्यालय / कलेज · वर्ष",yourJob:"तपाईंको पद",companyDuration:"कम्पनी · अवधि",yourSkills:"तपाईंका सीप",yourLanguages:"तपाईंका भाषाहरू",confirm:"के तपाईं बायोडाटाका सबै विवरण हटाउन चाहनुहुन्छ?",photoError:"कृपया छवि फाइल छान्नुहोस्।"}
 };
-function loadWebsiteAds(){
-  const pub=AD_CONFIG.adsensePublisherId, slot=AD_CONFIG.responsiveAdSlotId;
-  if(!/^ca-pub-\d{16}$/.test(pub)||!/^\d+$/.test(slot)) return;
-  const script=document.createElement('script');
-  script.async=true; script.crossOrigin='anonymous';
-  script.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+encodeURIComponent(pub);
-  document.head.appendChild(script);
-  ['topAd','bottomAd'].forEach(id=>{
-    const host=document.getElementById(id); if(!host) return;
-    host.innerHTML='<ins class="adsbygoogle" style="display:block" data-ad-client="'+pub+'" data-ad-slot="'+slot+'" data-ad-format="auto" data-full-width-responsive="true"></ins>';
-    try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}
-  });
-}
-loadWebsiteAds();
-
 const ids=['name','role','phone','email','location','link','summary','degree','school','year','eduLoc','job','company','duration','workLoc','duties','skills','languages','extra'];
 const val=id=>document.getElementById(id).value.trim();
+let photoData="";
 function setText(id,text){document.getElementById(id).textContent=text}
-function update(){setText('pname',val('name')||'Your Name');setText('prole',val('role')||'Your Professional Title');let c=[val('phone'),val('email'),val('location'),val('link')].filter(Boolean).join('  ·  ');setText('pcontact',c||'Phone · Email · City / Country');setText('psummary',val('summary')||'Your professional summary will appear here.');setText('pedu',val('degree')||'Your qualification');setText('pschool',[val('school'),val('eduLoc'),val('year')].filter(Boolean).join(' · ')||'School / College · Year');setText('pjob',val('job')||'Your job title');setText('pcompany',[val('company'),val('workLoc'),val('duration')].filter(Boolean).join(' · ')||'Company · Duration');setText('pduties',val('duties'));setText('pskills',val('skills')||'Your skills');setText('planguages',val('languages')||'Your languages');setText('pextra',val('extra'));['summarySec','eduSec','workSec','skillsSec','langSec','extraSec'].forEach((s,i)=>{let v=[val('summary'),val('degree')||val('school'),val('job')||val('company')||val('duties'),val('skills'),val('languages'),val('extra')][i];document.getElementById(s).classList.toggle('hidden',!v)});document.getElementById('previewWrap').className='preview-wrap '+document.getElementById('template').value;}
-ids.forEach(id=>document.getElementById(id).addEventListener('input',update));document.getElementById('template').addEventListener('change',update);
-function clearForm(){if(!confirm('Clear all resume details?'))return;ids.forEach(id=>document.getElementById(id).value='');update()}
-update();
-</script></body></html>
+function update(){
+ const t=translations[document.getElementById('language').value];
+ setText('pname',val('name')||t.yourName);setText('prole',val('role')||t.yourTitle);
+ const contact=[val('phone'),val('email'),val('location'),val('link')].filter(Boolean).join(' · ');
+ setText('pcontact',contact||[t.phone,t.email,t.city].join(' · '));
+ setText('psummary',val('summary')||t.yourSummary);setText('pedu',val('degree')||t.yourQualification);
+ setText('pschool',[val('school'),val('eduLoc'),val('year')].filter(Boolean).join(' · ')||t.schoolYear);
+ setText('pjob',val('job')||t.yourJob);setText('pcompany',[val('company'),val('workLoc'),val('duration')].filter(Boolean).join(' · ')||t.companyDuration);
+ setText('pduties',val('duties'));setText('pskills',val('skills')||t.yourSkills);setText('planguages',val('languages')||t.yourLanguages);setText('pextra',val('extra'));
+ ['summarySec','eduSec','workSec','skillsSec','langSec','extraSec'].forEach((s,i)=>{const v=[val('summary'),val('degree')||val('school'),val('job')||val('company')||val('duties'),val('skills'),val('languages'),val('extra')][i];document.getElementById(s).style.display=v?'':'none'});
+ document.getElementById('previewWrap').className='preview-wrap '+document.getElementById('template').value;
+}
+function setLanguage(){
+ const lang=document.getElementById('language').value,t=translations[lang];document.documentElement.lang=lang;
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(t[key])el.textContent=t[key]});
+ setText('tagline',t.tagline);setText('formTitle',t.formTitle);setText('formHint',t.formHint);setText('previewTitle',t.preview);setText('downloadBtn',t.download);setText('clearBtn',t.clear);setText('pdfHint',t.pdfHint);
+ document.querySelectorAll('[data-preview]').forEach(el=>{const key=el.dataset.preview;if(t[key])el.textContent=t[key]});
+ update();
+}
+ids.forEach(id=>document.getElementById(id).addEventListener('input',update));
+document.getElementById('template').addEventListener('change',update);
+document.getElementById('language').addEventListener('change',setLanguage);
+document.getElementById('photo').addEventListener('change',e=>{
+ const file=e.target.files&&e.target.files[0];if(!file)return;
+ if(!file.type.startsWith('image/')){alert(translations[document.getElementById('language').value].photoError);e.target.value='';return}
+ const reader=new FileReader();reader.onload=()=>{photoData=reader.result;const a=document.getElementById('photoPreview'),b=document.getElementById('resumePhoto');a.src=photoData;a.style.display='block';b.src=photoData;b.style.display='block'};reader.readAsDataURL(file);
+});
+document.getElementById('downloadBtn').addEventListener('click',()=>window.print());
+document.getElementById('clearBtn').addEventListener('click',()=>{
+ const t=translations[document.getElementById('language').value];if(!confirm(t.confirm))return;
+ ids.forEach(id=>document.getElementById(id).value='');document.getElementById('photo').value='';photoData='';
+ document.getElementById('photoPreview').style.display='none';document.getElementById('resumePhoto').style.display='none';update();
+});
+setLanguage();
+</script>
+</body>
+</html>
