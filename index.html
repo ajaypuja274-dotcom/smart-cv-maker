@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Create a professional resume online with 50+ job-focused CV designs. Choose a career category, edit your CV and save it as PDF.">
+<meta name="theme-color" content="#087f8c">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Smart CV Maker – 50+ Job-Specific Resume Templates</title>
+<style>
+:root{--ink:#17212f;--muted:#64748b;--line:#dbe3ec;--brand:#087f8c;--paper:#fff;--bg:#f3f6fa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Arial,Helvetica,sans-serif}
+header{background:linear-gradient(120deg,#063b4b,#0c8990);color:#fff;padding:22px 16px;text-align:center}
+header h1{margin:0 0 5px;font-size:25px}header p{margin:0;color:#d8f5f3}
+.wrap{max-width:1200px;margin:18px auto;padding:0 12px;display:grid;grid-template-columns:minmax(300px,430px) minmax(0,1fr);gap:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 4px 18px #12263a0a}
+h2{font-size:18px;margin:0 0 12px}.section{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
+label{display:block;font-weight:700;font-size:13px;margin:9px 0 4px}
+input,textarea,select{width:100%;padding:10px 11px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;background:#fff;color:#17212f}
+textarea{min-height:75px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:var(--brand);color:white;margin:5px 4px 3px 0}
+button.secondary{background:#e8f1f3;color:#075763}button.dark{background:#233347}button.remove{background:#fee2e2;color:#991b1b;padding:7px 10px}
+small,.hint{color:var(--muted);font-size:12px}
+.entry{border:1px solid var(--line);border-radius:10px;padding:10px;margin:9px 0}
+.toolbar{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.templateGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:290px;overflow:auto;padding:2px}
+.template{border:1px solid var(--line);border-radius:9px;padding:9px;text-align:left;background:#fff;color:var(--ink);margin:0}
+.template.active{border:2px solid var(--brand);background:#effcfc}
+.template b{display:block;font-size:13px}.template span{font-size:11px;color:var(--muted)}
+.previewWrap{position:sticky;top:10px;align-self:start}
+#resume{background:#fff;min-height:800px;box-shadow:0 5px 25px #14283c18;margin:0 auto;max-width:800px;padding:35px 38px;color:#202938;overflow-wrap:anywhere}
+#resume .cvhead{display:flex;gap:18px;align-items:center;border-bottom:3px solid var(--accent,#087f8c);padding-bottom:18px;margin-bottom:18px}
+#resume .photo{width:92px;height:92px;border-radius:50%;object-fit:cover;background:#e5e7eb}
+#resume h1{font-size:28px;line-height:1.1;margin:0 0 5px}#resume .role{font-size:15px;color:var(--accent,#087f8c);font-weight:bold}
+#resume .contact{font-size:12px;color:#586577;margin-top:7px}
+#resume h3{font-size:13px;text-transform:uppercase;letter-spacing:1.1px;color:var(--accent,#087f8c);border-bottom:1px solid #d9e1e8;padding-bottom:5px;margin:17px 0 7px}
+#resume p{margin:4px 0;font-size:13px}#resume .item{margin:8px 0}#resume .item strong{font-size:13px}#resume .meta{font-size:11px;color:#64748b}
+#resume .skills{display:flex;flex-wrap:wrap;gap:6px}#resume .skills span{background:#edf2f7;border-radius:20px;padding:4px 9px;font-size:11px}
+#resume .columns{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+#resume.classic{font-family:Georgia,serif;--accent:#4b5563}#resume.modern{border-top:10px solid var(--accent);--accent:#0f766e}
+#resume.minimal{--accent:#111827}#resume.executive{background:#fbfcfe;--accent:#1e3a5f}
+#resume.creative{--accent:#a23b72}#resume.blue{--accent:#1763a6}
+@media(max-width:850px){.wrap{grid-template-columns:1fr}.previewWrap{position:static}#resume{padding:24px 20px;min-height:650px}}
+@media(max-width:430px){.two{grid-template-columns:1fr}.templateGrid{grid-template-columns:1fr}#resume h1{font-size:23px}#resume .columns{grid-template-columns:1fr}}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}.noPrint,header,.editor{display:none!important}.wrap{display:block;margin:0;padding:0}.previewWrap{position:static}.panel{border:0;box-shadow:none;padding:0}#resume{box-shadow:none;max-width:none;min-height:0;padding:12mm 14mm}.templateGrid{display:none}}
+</style>
+
+<style>
+.dashboard{max-width:1200px;margin:22px auto;padding:0 14px 30px}
+.dashHero{background:linear-gradient(125deg,#073b4a,#0d9292);color:white;border-radius:18px;padding:26px;display:grid;grid-template-columns:1.5fr 1fr;gap:18px;align-items:center;overflow:hidden}
+.dashHero h2{font-size:clamp(25px,4vw,38px);line-height:1.15;margin:0 0 10px}.dashHero p{color:#d7f3f1;max-width:560px;margin:0 0 14px}
+.heroArt{font-size:80px;text-align:center;opacity:.95}.dashStats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.stat{background:white;border:1px solid var(--line);border-radius:12px;padding:14px}.stat strong{display:block;font-size:23px;color:#087f8c}.stat span{font-size:12px;color:var(--muted)}
+.dashHead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0 10px}.dashHead h2{margin:0}
+.dashSearch{max-width:360px}.categoryGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.catCard{background:white;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:left;color:var(--ink);margin:0;min-height:110px;transition:.15s}
+.catCard:hover{border-color:var(--brand);transform:translateY(-2px)}.catIcon{font-size:25px;display:block;margin-bottom:7px}.catCard b{display:block;font-size:13px;line-height:1.3}.catCard small{display:block;margin-top:5px}
+.dashFeatures{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.feature{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px}.feature b{display:block;margin:5px 0}
+.builderTop{max-width:1200px;margin:16px auto 0;padding:0 12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+@media(max-width:850px){.categoryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashHero{grid-template-columns:1fr}.heroArt{display:none}}
+@media(max-width:480px){.dashStats{grid-template-columns:repeat(3,1fr)}.stat{padding:10px}.stat strong{font-size:19px}.dashFeatures{grid-template-columns:1fr}.dashHead{align-items:flex-start;flex-direction:column}.dashSearch{max-width:none;width:100%}}
+@media print{.dashboard,.builderTop{display:none!important}}
+</style>
+
+
+<style>.wrap.builderHidden{display:none}</style>
+
+
+<style>
+/* Premium two-column CV layout */
+#resume{padding:0!important;max-width:800px;min-height:1050px;border:1px solid #e5e7eb;overflow:hidden;font-family:Arial,Helvetica,sans-serif;color:#243247}
+#resume .premium-head{background:#132b45;color:#fff;padding:34px 38px;display:flex;align-items:center;gap:22px;min-height:160px}
+#resume .premium-head .photo{width:112px;height:112px;border:4px solid rgba(255,255,255,.8);border-radius:50%;flex:0 0 112px}
+#resume .premium-head h1{font-family:Arial,sans-serif;font-size:30px;line-height:1.12;letter-spacing:.3px;margin:0 0 7px;color:#fff}
+#resume .premium-head .role{font-size:14px;letter-spacing:1.4px;text-transform:uppercase;color:#d7e7f4;font-weight:700}
+#resume .premium-head .contact{color:#e5edf5;font-size:11px;line-height:1.8;margin-top:10px}
+#resume .premium-body{display:grid;grid-template-columns:32% 68%;min-height:880px}
+#resume .premium-side{background:#edf2f6;padding:26px 20px 32px}
+#resume .premium-main{padding:27px 30px 35px;background:#fff}
+#resume h3{font-family:Arial,sans-serif;font-size:12px;letter-spacing:1.5px;font-weight:800;margin:19px 0 10px;padding:0 0 7px;border-bottom:2px solid #c7d3df;color:#173957}
+#resume .premium-side h3{color:#173957;border-bottom-color:#b7c6d5}
+#resume p{font-size:12px;line-height:1.65;color:#3e4c5c;margin:5px 0}
+#resume .item{margin:0 0 15px;break-inside:avoid}
+#resume .item strong{font-size:13px;color:#172b40}
+#resume .meta{font-size:10.5px;color:#66788a;line-height:1.5;margin-top:3px}
+#resume .skills{display:flex;flex-wrap:wrap;gap:6px}
+#resume .skills span{background:#fff;border:1px solid #d1dbe5;border-radius:4px;padding:5px 7px;font-size:10px;color:#334b63}
+#resume .side-text{font-size:11px;line-height:1.8;color:#34485c;overflow-wrap:anywhere}
+#resume .premium-main h3:first-child,#resume .premium-side h3:first-child{margin-top:0}
+#resume .accent-line{width:42px;height:3px;background:#c49a55;margin:10px 0 0}
+#resume.executive .premium-head{background:#172b45}
+#resume.creative .premium-head{background:#512b4a}
+#resume.blue .premium-head{background:#174b78}
+#resume.classic .premium-head{background:#394454}
+#resume.minimal .premium-head{background:#202b38}
+#resume.modern .premium-head{background:#075b62}
+@media(max-width:600px){#resume{min-height:0}#resume .premium-head{padding:24px 20px;gap:14px}#resume .premium-head .photo{width:82px;height:82px;flex-basis:82px}#resume .premium-head h1{font-size:23px}#resume .premium-body{grid-template-columns:1fr}#resume .premium-side{padding:18px 20px}#resume .premium-main{padding:20px}}
+@media print{
+ @page{size:A4 portrait;margin:0}
+ html,body{margin:0!important;padding:0!important;background:#fff!important}
+ body{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+ #resume{
+   width:210mm;max-width:none;
+   min-height:0!important;height:auto!important;
+   margin:0!important;padding:0!important;
+   border:0;box-shadow:none!important;
+   overflow:visible!important;
+   break-after:auto!important;page-break-after:auto!important;
+ }
+ #resume .premium-head{padding:12mm 13mm}
+ #resume .premium-body{
+   min-height:0!important;
+   grid-template-columns:32% 68%;
+   break-inside:auto;page-break-inside:auto;
+ }
+ #resume .premium-side{padding:9mm 7mm}
+ #resume .premium-main{padding:9mm 10mm}
+ #resume .premium-head .photo{width:29mm;height:29mm;flex-basis:29mm}
+ #resume .item{break-inside:avoid;page-break-inside:avoid}
+}
+</style>
+
+
+<style>
+/* Additional genuinely different resume layouts */
+#resume.layout-0 .premium-head{background:#142e4a}
+#resume.layout-0 .premium-side{background:#edf2f7}
+#resume.layout-1 .premium-body{grid-template-columns:68% 32%}
+#resume.layout-1 .premium-main{order:1}
+#resume.layout-1 .premium-side{order:2;background:#eaf0f5}
+#resume.layout-1 .premium-head{background:#075b62}
+#resume.layout-2 .premium-head{background:#fff;color:#1f2937;justify-content:center;text-align:center;border-bottom:4px solid #334155}
+#resume.layout-2 .premium-head h1{color:#17212f;font-family:Georgia,serif;font-size:34px}
+#resume.layout-2 .premium-head .role,#resume.layout-2 .premium-head .contact{color:#526174}
+#resume.layout-2 .premium-head .photo{border:3px solid #cbd5e1}
+#resume.layout-2 .premium-body{display:block;min-height:0}
+#resume.layout-2 .premium-side{background:#fff;padding:8px 30px 0;display:grid;grid-template-columns:1fr 1fr;gap:0 25px}
+#resume.layout-2 .premium-main{padding:5px 30px 30px}
+#resume.layout-2 h3{font-family:Georgia,serif;color:#334155;border-bottom:1px solid #94a3b8}
+#resume.layout-3 .premium-head{background:#f8fafc;color:#17212f;border-left:9px solid #0f766e}
+#resume.layout-3 .premium-head h1{color:#17212f}
+#resume.layout-3 .premium-head .role,#resume.layout-3 .premium-head .contact{color:#526174}
+#resume.layout-3 .premium-head .photo{border-radius:12px;border:2px solid #0f766e}
+#resume.layout-3 .premium-body{display:block;min-height:0}
+#resume.layout-3 .premium-side{background:#fff;padding:10px 30px 0;display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+#resume.layout-3 .premium-main{padding:5px 30px 30px}
+#resume.layout-3 h3{color:#0f766e;border-bottom:2px solid #99c8c3}
+#resume.layout-4 .premium-head{background:#fff;color:#17212f;border-bottom:1px solid #d8dee7}
+#resume.layout-4 .premium-head h1{color:#17212f;font-family:Georgia,serif}
+#resume.layout-4 .premium-head .role,#resume.layout-4 .premium-head .contact{color:#596579}
+#resume.layout-4 .premium-head .photo{border-radius:8px;border:2px solid #c49a55}
+#resume.layout-4 .premium-body{grid-template-columns:32% 68%}
+#resume.layout-4 .premium-side{background:#172b45;color:#fff}
+#resume.layout-4 .premium-side h3{color:#f4d49a;border-bottom-color:#53677e}
+#resume.layout-4 .premium-side .side-text{color:#e7edf4}
+#resume.layout-4 .premium-side .skills span{background:#263f5c;color:#fff;border-color:#52677e}
+#resume.layout-4 .premium-main{background:#fff}
+#resume.layout-5 .premium-head{background:#075b62}
+#resume.layout-6 .premium-head{background:linear-gradient(120deg,#512b4a,#8b456d)}
+#resume.layout-6 .premium-side{background:#f7edf3}
+#resume.layout-7 .premium-head{background:#174b78}
+#resume.layout-7 .premium-side{background:#eaf1f8}
+#resume.layout-8 .premium-head{background:#394454}
+#resume.layout-8 .premium-side{background:#f1f2f4}
+#resume.layout-9 .premium-head{background:#202b38}
+#resume.layout-9 .premium-side{background:#e8edf2}
+@media(max-width:600px){
+ #resume.layout-1 .premium-body,#resume.layout-4 .premium-body{grid-template-columns:1fr}
+ #resume.layout-1 .premium-main,#resume.layout-1 .premium-side{order:initial}
+ #resume.layout-2 .premium-side,#resume.layout-3 .premium-side{grid-template-columns:1fr;padding:16px 20px 0}
+ #resume.layout-2 .premium-main,#resume.layout-3 .premium-main{padding:8px 20px 20px}
+}
+@media print{
+ #resume.layout-2 .premium-side,#resume.layout-3 .premium-side{grid-template-columns:1fr 1fr}
+}
+</style>
+
+</head>
+<body>
+<header><h1>Smart CV Maker</h1><p>50+ job-specific professional resume designs • Mobile friendly • Free to use</p></header>
+
+<section id="dashboard" class="dashboard">
+  <div class="dashHero">
+    <div><p style="font-weight:bold;letter-spacing:1px">SMART CV MAKER</p>
+      <h2>Build a professional resume for your next opportunity.</h2>
+      <p>Choose your job category, select a design and create a polished CV in minutes — right from your phone.</p>
+      <button type="button" id="heroStart">Create my resume →</button>
+    </div><div class="heroArt">📄</div>
+  </div>
+  <div class="dashStats">
+    <div class="stat"><strong>50+</strong><span>Job-specific designs</span></div>
+    <div class="stat"><strong>10</strong><span>Career categories</span></div>
+    <div class="stat"><strong>3</strong><span>Resume languages</span></div>
+  </div>
+  <div class="dashHead"><h2>Choose your career category</h2><input class="dashSearch" id="categorySearch" placeholder="Search job category…"></div>
+  <div id="dashboardCategories" class="categoryGrid"></div>
+  <div class="dashHead"><h2>Why use Smart CV Maker?</h2></div>
+  <div class="dashFeatures">
+    <div class="feature"><span class="catIcon">🎨</span><b>Professional designs</b><small>Choose from 50+ designs made for different job roles.</small></div>
+    <div class="feature"><span class="catIcon">📱</span><b>Mobile-friendly editor</b><small>Create and edit your CV easily on an Android phone.</small></div>
+    <div class="feature"><span class="catIcon">⬇️</span><b>Save as PDF</b><small>Print or save your finished resume as a PDF.</small></div>
+  </div>
+</section>
+<div id="builderTop" class="builderTop" style="display:none">
+  <button type="button" class="secondary" id="backDashboard">← Dashboard</button>
+  <span class="hint">Resume editor</span>
+</div>
+
+<div class="wrap builderHidden" id="builder">
+<section class="panel editor">
+<h2>Build your resume</h2>
+<div class="two">
+<div><label>Resume language</label><select id="language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="ne">नेपाली</option></select></div>
+<div><label>Job category</label><select id="category"></select></div>
+</div>
+<div class="section"><h2>Choose a design <small id="count"></small></h2><div id="templates" class="templateGrid"></div></div>
+<div class="section"><h2>Personal details</h2>
+<label>Full name</label><input id="name" placeholder="Your full name">
+<label>Professional title / Job role</label><input id="role" placeholder="e.g. Casino Dealer">
+<div class="two"><div><label>Phone</label><input id="phone" placeholder="+977 / +91"></div><div><label>Email</label><input id="email" type="email" placeholder="you@example.com"></div></div>
+<label>Address / City</label><input id="address" placeholder="City, Country">
+<label>LinkedIn / Portfolio (optional)</label><input id="link" placeholder="https://">
+<label>Profile photo (optional)</label><input id="photo" type="file" accept="image/*"><button class="secondary" id="removePhoto" type="button">Remove photo</button>
+<label>Professional summary</label><textarea id="summary" placeholder="Write 2–4 lines about your experience and strengths"></textarea>
+</div>
+<div class="section"><h2>Education</h2><div id="education"></div><button type="button" class="secondary" id="addEducation">+ Add education</button></div>
+<div class="section"><h2>Work experience</h2><div id="experience"></div><button type="button" class="secondary" id="addExperience">+ Add experience</button></div>
+<div class="section"><h2>Skills & languages</h2><label>Skills (separate with commas)</label><textarea id="skills" placeholder="Customer service, Teamwork, Communication"></textarea><label>Languages (separate with commas)</label><input id="languages" placeholder="English, Hindi, Nepali"><label>Certificates / Additional information</label><textarea id="extra" placeholder="Certificates, achievements, availability..."></textarea></div>
+<div class="section toolbar"><button id="print" type="button">Download / Save PDF</button><button class="secondary" id="shareWhatsApp" type="button">Share CV details on WhatsApp</button><button class="dark" id="clear" type="button">Clear all</button></div>
+<p class="hint">Tip: Tap “Download / Save PDF”, then choose “Save as PDF”. Your CV draft is saved automatically only in this browser on this device. WhatsApp shares CV details as a message, not a PDF attachment. For PDF, use Download / Save PDF and choose Save as PDF.</p>
+</section>
+<section class="previewWrap">
+<div class="panel noPrint toolbar" style="margin-bottom:12px"><b>Live resume preview</b><span class="hint">Changes appear automatically</span></div>
+<div class="panel"><article id="resume" class="modern"></article></div>
+</section>
+</div>
+<script>
+const groups = [
+["Hotel, Restaurant & Hospitality",["Hotel Manager","Front Desk Receptionist","Waiter / Waitress","Chef / Cook","Housekeeping Attendant"]],
+["Casino & Cruise Ship",["Casino Dealer","Casino Supervisor","Cruise Ship Steward","Guest Service Associate","Food & Beverage Crew"]],
+["Office, Admin & Accountant",["Office Administrator","Receptionist","Data Entry Operator","Accountant","Office Assistant"]],
+["IT, Computer & Software",["Web Developer","Software Developer","IT Support Technician","Graphic Designer","Digital Marketing Executive"]],
+["Sales, Marketing & Business",["Sales Executive","Sales Manager","Marketing Assistant","Business Development Executive","Customer Support Executive"]],
+["Teaching & Education",["School Teacher","English Teacher","Teaching Assistant","Private Tutor","School Administrator"]],
+["Healthcare & Nursing",["Registered Nurse","Caregiver","Medical Assistant","Pharmacy Assistant","Hospital Receptionist"]],
+["Engineering & Technical",["Civil Engineer","Electrical Technician","Mechanical Technician","Electrician","Quality Control Technician"]],
+["Driver, Delivery & Logistics",["Professional Driver","Delivery Rider","Warehouse Assistant","Logistics Coordinator","Forklift Operator"]],
+["Security, Factory & General Labour",["Security Guard","Factory Worker","Machine Operator","Construction Worker","General Labourer"]]
+];
+const designs=["Professional Blue","Modern Teal","Classic Formal","Simple Black & White","Executive Sidebar","Modern Minimal","Creative Accent","Corporate Clean","Elegant Serif","Bold Header"];
+const categories=document.getElementById('category'), templateBox=document.getElementById('templates');
+groups.forEach((g,i)=>categories.add(new Option(g[0],i)));
+let selected=0, selectedGroup=0, photoData="";
+const allTemplates=groups.flatMap((g,gi)=>designs.map((d,di)=>({name:d,job:g[1][di%5],group:gi,index:di})));
+function renderTemplates(){
+ selectedGroup=+categories.value;let list=allTemplates.filter(t=>t.group===selectedGroup);
+ document.getElementById('count').textContent=`(${list.length} designs in this category)`;
+ templateBox.innerHTML='';
+ list.forEach(t=>{let idx=allTemplates.indexOf(t),b=document.createElement('button');b.type='button';b.className='template'+(idx===selected?' active':'');b.innerHTML=`<b>${t.name}</b><span>${t.job}</span>`;b.onclick=()=>{selected=idx;renderTemplates();render()};templateBox.appendChild(b)});
+}
+categories.onchange=()=>{renderTemplates();let first=allTemplates.findIndex(t=>t.group===+categories.value);selected=first;renderTemplates();render()};
+function addEntry(type,vals={}){let root=document.getElementById(type),div=document.createElement('div');div.className='entry';div.innerHTML=type==='education'?`<label>Qualification</label><input data-k="title" placeholder="e.g. 12th / Bachelor"><div class="two"><div><label>School / College</label><input data-k="place" placeholder="Institution name"></div><div><label>Year</label><input data-k="date" placeholder="2020"></div></div><button type="button" class="remove">Remove</button>`:`<label>Job title</label><input data-k="title" placeholder="e.g. Casino Dealer"><div class="two"><div><label>Company / Location</label><input data-k="place" placeholder="Company, City"></div><div><label>Dates</label><input data-k="date" placeholder="2022–2025"></div></div><label>Responsibilities / Achievements</label><textarea data-k="desc" placeholder="Describe your work"></textarea><button type="button" class="remove">Remove</button>`;
+ div.querySelectorAll('[data-k]').forEach(el=>{el.value=vals[el.dataset.k]||'';el.addEventListener('input',render)});
+ div.querySelector('.remove').onclick=()=>{div.remove();render()};root.appendChild(div);render();}
+function getEntries(id){return [...document.querySelectorAll('#'+id+' .entry')].map(e=>{let o={};e.querySelectorAll('[data-k]').forEach(x=>o[x.dataset.k]=x.value.trim());return o}).filter(o=>Object.values(o).some(Boolean))}
+function val(id){return document.getElementById(id).value.trim()}
+const labels={en:{profile:"Profile",education:"Education",experience:"Work Experience",skills:"Key Skills",languages:"Languages",extra:"Additional Information"},hi:{profile:"परिचय",education:"शिक्षा",experience:"कार्य अनुभव",skills:"मुख्य कौशल",languages:"भाषाएँ",extra:"अतिरिक्त जानकारी"},ne:{profile:"परिचय",education:"शिक्षा",experience:"कार्य अनुभव",skills:"मुख्य सीप",languages:"भाषाहरू",extra:"थप जानकारी"}};
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+ let t=allTemplates[selected]||allTemplates[0],lang=val('language')||'en',L=labels[lang],name=val('name')||'Your Name',role=val('role')||t.job;
+ let contact=[val('phone'),val('email'),val('address'),val('link')].filter(Boolean).map(esc);
+ let cls=['blue','modern','classic','minimal','executive','minimal','creative','blue','classic','executive'][t.index];
+ let edu=getEntries('education'),exp=getEntries('experience'),skills=val('skills').split(',').map(x=>x.trim()).filter(Boolean),langs=val('languages').split(',').map(x=>x.trim()).filter(Boolean);
+ const list=(arr,kind)=>arr.map(x=>`<div class="item"><strong>${esc(x.title)}</strong><div class="meta">${esc(x.place)} ${x.date?' • '+esc(x.date):''}</div>${kind==='exp'&&x.desc?`<p>${esc(x.desc)}</p>`:''}</div>`).join('');
+ const section=(title,body)=>body?`<section><h3>${title}</h3>${body}</section>`:'';
+ document.getElementById('resume').className=cls+' layout-'+t.index;
+ document.getElementById('resume').innerHTML=`
+ <div class="premium-head">
+   ${photoData?`<img class="photo" src="${photoData}" alt="Profile photo">`:`<div class="photo" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;color:#173957;background:#dce6ef;font-size:28px;font-weight:bold">${esc(name.split(' ').map(x=>x[0]||'').slice(0,2).join('').toUpperCase())}</div>`}
+   <div><h1>${esc(name)}</h1><div class="role">${esc(role)}</div><div class="contact">${contact.join(' &nbsp; • &nbsp; ')}</div><div class="accent-line"></div></div>
+ </div>
+ <div class="premium-body">
+   <aside class="premium-side">
+     ${section(L.skills,skills.length?`<div class="skills">${skills.map(s=>`<span>${esc(s)}</span>`).join('')}</div>`:'')}
+     ${section(L.languages,langs.length?`<div class="side-text">${langs.map(esc).join('<br>')}</div>`:'')}
+     ${section(L.education,list(edu,'edu'))}
+     ${section(L.extra,val('extra')?`<div class="side-text">${esc(val('extra'))}</div>`:'')}
+   </aside>
+   <main class="premium-main">
+     ${section(L.profile,val('summary')?`<p>${esc(val('summary'))}</p>`:'')}
+     ${section(L.experience,list(exp,'exp'))}
+     ${!val('summary')&&!exp.length?`<p class="meta">Add your professional summary and work experience to complete your resume.</p>`:''}
+   </main>
+ </div>`;
+}
+document.querySelectorAll('input:not([type=file]),textarea,select').forEach(el=>el.addEventListener('input',render));
+document.getElementById('addEducation').onclick=()=>addEntry('education');
+document.getElementById('addExperience').onclick=()=>addEntry('experience');
+document.getElementById('photo').onchange=e=>{let f=e.target.files[0];if(!f)return;if(f.size>8*1024*1024){alert('Please choose a photo smaller than 8 MB.');e.target.value='';return}let r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const max=900,scale=Math.min(1,max/Math.max(img.width,img.height)),canvas=document.createElement('canvas');canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);photoData=canvas.toDataURL('image/jpeg',.78);window.__cvPhotoData=photoData;render();document.getElementById('name').dispatchEvent(new Event('input',{bubbles:true}));};img.onerror=()=>alert('Could not read this image. Please choose another photo.');img.src=r.result};r.readAsDataURL(f)};
+document.getElementById('removePhoto').onclick=()=>{photoData='';window.__cvPhotoData='';document.getElementById('photo').value='';render();document.getElementById('name').dispatchEvent(new Event('input',{bubbles:true}))};
+document.getElementById('print').onclick=()=>window.print();
+document.getElementById('clear').onclick=()=>{if(!confirm('Clear all resume details?'))return;document.querySelectorAll('.editor input:not([type=file]),.editor textarea').forEach(e=>e.value='');document.getElementById('education').innerHTML='';document.getElementById('experience').innerHTML='';photoData='';window.__cvPhotoData='';try{localStorage.removeItem('smartCvMakerDraftV1')}catch(e){}render()};
+document.getElementById('shareWhatsApp').onclick=()=>{const t=allTemplates[selected]||allTemplates[0];const lines=[`CV: ${val('name')||'My Name'}`,`Role: ${val('role')||t.job}`,val('phone')?`Phone: ${val('phone')}`:'',val('email')?`Email: ${val('email')}`:'',val('address')?`Location: ${val('address')}`:'',val('summary')?`Profile: ${val('summary')}`:'',val('skills')?`Skills: ${val('skills')}`:'','Created with Smart CV Maker'];const msg=encodeURIComponent(lines.filter(Boolean).join('\n'));window.open(`https://wa.me/?text=${msg}`,'_blank','noopener');};
+renderTemplates();addEntry('education');addEntry('experience');render();
+</script>
+
+<script>
+(function(){
+ const dash=document.getElementById('dashboard'),builder=document.getElementById('builder'),topbar=document.getElementById('builderTop');
+ const catBox=document.getElementById('dashboardCategories'),search=document.getElementById('categorySearch');
+ const icons=['🏨','🎰','🗂️','💻','📈','🎓','🩺','🛠️','🚚','🦺'];
+ const categorySelect=document.getElementById('category');
+ function openBuilder(index){
+   if(typeof index==='number'){categorySelect.value=String(index);categorySelect.dispatchEvent(new Event('change'));}
+   dash.style.display='none';builder.classList.remove('builderHidden');topbar.style.display='flex';
+   window.scrollTo({top:0,behavior:'smooth'});
+ }
+ function showDashboard(){
+   builder.classList.add('builderHidden');dash.style.display='block';topbar.style.display='none';
+   window.scrollTo({top:0,behavior:'smooth'});
+ }
+ function fillCategories(filter=''){
+   catBox.innerHTML='';
+   [...categorySelect.options].forEach((opt,i)=>{
+     if(!opt.text.toLowerCase().includes(filter.toLowerCase()))return;
+     const btn=document.createElement('button');btn.type='button';btn.className='catCard';
+     const icon=document.createElement('span');icon.className='catIcon';icon.textContent=icons[i]||'📄';
+     const title=document.createElement('b');title.textContent=opt.text;
+     const small=document.createElement('small');small.textContent='5 job-focused resume designs';
+     btn.append(icon,title,small);btn.onclick=()=>openBuilder(i);catBox.appendChild(btn);
+   });
+ }
+ fillCategories();
+ search.addEventListener('input',()=>fillCategories(search.value));
+ document.getElementById('heroStart').onclick=()=>openBuilder(0);
+ document.getElementById('backDashboard').onclick=showDashboard;
+})();
+</script>
+
+
+<script>
+(function(){
+ const watched = document.querySelectorAll('.editor input:not([type=file]), .editor textarea, .editor select');
+ const key='smartCvMakerDraftV1';
+ function snapshot(){
+   const data={fields:{},education:[],experience:[],photo:window.__cvPhotoData||''};
+   watched.forEach(el=>{if(el.id)data.fields[el.id]=el.value});
+   ['education','experience'].forEach(id=>{
+     data[id]=[...document.querySelectorAll('#'+id+' .entry')].map(e=>{
+       const o={};e.querySelectorAll('[data-k]').forEach(x=>o[x.dataset.k]=x.value);return o;
+     });
+   });
+   try{localStorage.setItem(key,JSON.stringify(data));}catch(e){}
+ }
+ let timer;
+ watched.forEach(el=>el.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(snapshot,400)}));
+ document.addEventListener('input',e=>{if(e.target.matches('.entry input,.entry textarea')){clearTimeout(timer);timer=setTimeout(snapshot,400)}});
+ document.addEventListener('click',e=>{if(e.target.closest('#addEducation,#addExperience,.remove'))setTimeout(snapshot,100)});
+ const clear=document.getElementById('clear');
+ if(clear){clear.addEventListener('click',()=>{setTimeout(()=>localStorage.removeItem(key),100)});}
+ // Restore only when user has a saved local draft; do not transmit it anywhere.
+ try{
+   const saved=JSON.parse(localStorage.getItem(key)||'null');
+   if(saved){
+     Object.entries(saved.fields||{}).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v});
+     const add=(type,vals)=>{
+       const root=document.getElementById(type),div=document.createElement('div');div.className='entry';
+       div.innerHTML=type==='education'
+        ? '<label>Qualification</label><input data-k="title" placeholder="e.g. 12th / Bachelor"><div class="two"><div><label>School / College</label><input data-k="place" placeholder="Institution name"></div><div><label>Year</label><input data-k="date" placeholder="2020"></div></div><button type="button" class="remove">Remove</button>'
+        : '<label>Job title</label><input data-k="title" placeholder="e.g. Casino Dealer"><div class="two"><div><label>Company / Location</label><input data-k="place" placeholder="Company, City"></div><div><label>Dates</label><input data-k="date" placeholder="2022–2025"></div></div><label>Responsibilities / Achievements</label><textarea data-k="desc" placeholder="Describe your work"></textarea><button type="button" class="remove">Remove</button>';
+       div.querySelectorAll('[data-k]').forEach(el=>{el.value=vals[el.dataset.k]||'';el.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(snapshot,400)})});
+       div.querySelector('.remove').onclick=()=>{div.remove();snapshot()};root.appendChild(div);
+     };
+     if(saved.education?.length){document.getElementById('education').innerHTML='';saved.education.forEach(v=>add('education',v))}
+     if(saved.experience?.length){document.getElementById('experience').innerHTML='';saved.experience.forEach(v=>add('experience',v))}
+     if(saved.photo){photoData=saved.photo;window.__cvPhotoData=saved.photo;}
+     setTimeout(()=>document.querySelectorAll('.editor input:not([type=file]),.editor textarea,.editor select').forEach(el=>el.dispatchEvent(new Event('input'))),150);
+   }
+ }catch(e){}
+})();
+</script>
+
+</body>
+</html>
